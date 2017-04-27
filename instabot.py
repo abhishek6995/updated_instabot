@@ -1,11 +1,11 @@
 import requests
-
+#access token for performing operation on user and owner account<<<<< used in the scope of basic, public_content, likes, comments.>>>>>
 access_token = "3766449850.2ee0ed5.69e4c26682af4c3a853e3597f12c6bb0"
 
 base_url = "https://api.instagram.com/v1"
 
 
-def self_info():
+def self_info():                      #getting the collection of user
     url = base_url + "/users/self/?access_token=" + access_token
     my_info = requests.get(url).json()
     print my_info
@@ -15,26 +15,31 @@ def self_info():
     print my_info["data"]["counts"]["followed_by"]
     print my_info["data"]["counts"]["follows"]
 
-#()
+
 
 
 # https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
 
-def user_search(user_name):
-
-
-    url_user = base_url + "/users/search?q=" + user_name + "&access_token=" + access_token
-    print url_user
-    # https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
-    user_detail = requests.get(url_user).json()
-    success = user_detail["meta"]["code"]
-    if success == 200:
-        print "user detail found"
-        print"the insta_username is :" + user_detail['data'][0]['full_name']
+def user_search(user_name):                #get user id
+    if user_name not in ['amritbirsingh345', 'kamal_kashyap13','mehak3996']:
+        print"you enter wrong username"
+        return
     else:
-        print "user detail not found plz try again"
-    return user_detail["data"][0]["id"]
-#user_search("amritbirsingh345")
+
+         url_user = base_url + "/users/search?q=" + user_name + "&access_token=" + access_token
+         print url_user
+        # https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
+         user_detail = requests.get(url_user).json()
+         success = user_detail["meta"]["code"]
+         if success == 200:
+               print "user detail found"
+               print"the insta_username is :" + user_detail['data'][0]['full_name']
+         else:
+               print "user detail not found plz try again"
+         return user_detail["data"][0]["id"]
+                  # returning user id
+         # print user_info['data'][0]['profile_picture']
+        #user_search("amritbirsingh345")
 
 def latest_post(user_name):
     user_id = user_search(user_name)
@@ -45,7 +50,7 @@ def latest_post(user_name):
     print "latest post entered by user is:" + latest_post["data"][0]["link"]
     return latest_post["data"][0]["id"]
 
-
+#it is for making the like on te user id
 def like_user_post(user_name):
     post_id = latest_post(user_name)
     payload = {"access_token": access_token}
@@ -104,7 +109,7 @@ while choice != '9':
 
     choice = input("Enter Your Choice(1-9) : ")
 
-    user_name = ("amritbirsingh345")
+    user_name = raw_input("Enter the following users 1.amritbirsingh345 2.kamal_kashyap13 3.mehak3996")
 
         # Perform Actions Depending on the User's Choice. Runs Until User wishes to Exit.
         # if choice in ['1', '2', '3', '4', '5', '6', '7']:
