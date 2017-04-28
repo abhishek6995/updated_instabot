@@ -21,7 +21,7 @@ def self_info():                      #getting the collection of user
 # https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
 
 def user_search(user_name):                #get user id
-    if user_name not in ['amritbirsingh345', 'kamal_kashyap13','mehak3996']:
+    if user_name not in ['amritbirsingh345', 'kamal_kashyap13']:
         print"you enter wrong username"
         return
     else:
@@ -109,7 +109,7 @@ while choice != '9':
 
     choice = input("Enter Your Choice(1-9) : ")
 
-    user_name = raw_input("Enter the following users 1.amritbirsingh345 2.kamal_kashyap13 3.mehak3996")
+    user_name = raw_input("Enter the following users 1.amritbirsingh345 2.kamal_kashyap13")
 
         # Perform Actions Depending on the User's Choice. Runs Until User wishes to Exit.
         # if choice in ['1', '2', '3', '4', '5', '6', '7']:
