@@ -105,7 +105,7 @@ while choice != '9':
     print("6. Delete the comment containing a particular word.")
     print("7. Exit.\n\n")
 
-    choice = input("Enter Your Choice(1-9) : ")
+    choice = input("Enter Your Choice(1-9) : ")   #choose the number you want
 
     user_name = raw_input("Enter the following users 1.amritbirsingh345 2.kamal_kashyap13")
 
