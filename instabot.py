@@ -80,7 +80,7 @@ def search_comments(user_name):
     return request_comment["data"][0]["id"]
         # print request_comment["data"][0]["text"]
 
-
+#for deleting the comment
 def delete_comment(user_name):
     post_id = latest_post(user_name)
     comment_id = comment_user_post(user_name)
