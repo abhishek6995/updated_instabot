@@ -16,8 +16,6 @@ def self_info():                      #getting the collection of user
     print my_info["data"]["counts"]["follows"]
 
 
-
-
 # https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
 
 def user_search(user_name):                #get user id
@@ -62,7 +60,7 @@ def like_user_post(user_name):
     else:
         print("Something went wrong! Please do it again")
 
-
+#it is for making the comment on user id
 def comment_user_post(user_name):
     post_id = latest_post(user_name)
     request_url = (base_url + "/media/%s/comments?access_token=%s") % (post_id, access_token)
@@ -74,7 +72,7 @@ def comment_user_post(user_name):
         print("comment not added try again")
      #return request["data"]["id"]
 
-
+#for searching the comment
 def search_comments(user_name):
     post_id = latest_post(user_name)
     request_url = base_url + "/media/" + post_id + "/comments?access_token=" + access_token
